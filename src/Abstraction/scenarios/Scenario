@@ -1,0 +1,20 @@
+🧪 Scenario-Based Design Question
+🧾 Scenario:
+You're building a system for an online payment platform.
+The platform supports different payment methods like:
+
+Credit Card
+
+UPI
+
+Net Banking
+
+PayPal
+
+Each payment method:
+
+Must initiate a payment
+
+Must validate the details (e.g., card number, UPI ID)
+
+Has its own logic for processing the payment

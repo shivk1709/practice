@@ -1,0 +1,115 @@
+✅ Java Stream API – Medium Practice Questions
+Filter Strings
+From a list of strings, return only those that start with a vowel and have more than 3 characters.
+
+Transform and Collect
+Given a list of integers, return a list of their squares, but only include even numbers.
+
+Extract Fields from Objects
+Given a list of Person objects, return a list of names of people who are older than 30.
+
+Group By First Letter
+Group a list of strings by their first character into a Map<Character, List<String>>.
+
+Find Max Value
+From a list of Employee objects (with a salary field), find the employee with the highest salary.
+
+Sort by Custom Rule
+Sort a list of Person objects first by age (ascending), then by name (alphabetically).
+
+FlatMap Nested Lists
+Given a list of lists of integers, flatten them into a single list of integers.
+
+Count Occurrences
+Given a list of words, count how many times each word appears and return a Map<String, Long>.
+
+list.stream.collect(Collectors.groupingBy(Functions.Identity(), Collectors.counting()))
+
+Partition By Condition
+Given a list of integers, partition them into two lists: one with even numbers and one with odd numbers.
+
+Reduce to Single Value
+Given a list of strings, concatenate them with a , separator into a single string.
+
+Grouping Types -
+| Use case                     | Code snippet                                |
+| ---------------------------- | ------------------------------------------- |
+| Group list into a map        | `groupingBy(keyExtractor)`                  |
+| Group and count              | `groupingBy(key, counting())`               |
+| Group and map sub-properties | `groupingBy(key, mapping(value, toList()))` |
+
+1. Group List into a map
+Map<String, List<Person>> peopleByCity = people.stream()
+    .collect(Collectors.groupingBy(Person::getCity));
+
+2.Group and count
+Map<String, Long> countByCity = people.stream()
+    .collect(Collectors.groupingBy(Person::getCity, Collectors.counting()));
+
+3.Names per city:
+Map<String, List<String>> namesByCity = people.stream()
+    .collect(Collectors.groupingBy(
+        Person::getCity,
+        Collectors.mapping(Person::getName, Collectors.toList())
+    ));
+
+4. Grouping by length
+List<String> words = Arrays.asList("apple", "banana", "car", "dog", "elephant");
+
+Map<Integer, List<String>> groupedByLength = words.stream()
+    .collect(Collectors.groupingBy(String::length));
+
+System.out.println(groupedByLength);
+
+Reduce
+
+🧠 Summary Table
+Use Case	reduce() Form	Example
+Sum of numbers	.reduce(0, (a, b) -> a + b)	15
+Max/Min value	.reduce(Integer::max)	Optional<Integer>
+Concatenate strings	.reduce("", (a, b) -> a + b)	"a b c"
+Handle empty list	.reduce(...) returns Optional<T>	Use .ifPresent() or .orElse()
+
+
+🧮 Example 1: Sum of Integers
+java
+Copy
+Edit
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+int sum = numbers.stream()
+    .reduce(0, (a, b) -> a + b);  // Identity = 0, operation = addition
+
+System.out.println(sum);  // Output: 15
+👉 a is the accumulator, b is the current element
+
+❗ Without Identity: Optional
+java
+Copy
+Edit
+Optional<Integer> sumOpt = numbers.stream()
+    .reduce((a, b) -> a + b);
+
+sumOpt.ifPresent(System.out::println);  // Output: 15
+This is useful if the list might be empty.
+
+🔠 Example 2: Concatenate Strings
+java
+Copy
+Edit
+List<String> words = Arrays.asList("Java", "Stream", "API");
+
+String result = words.stream()
+    .reduce("", (a, b) -> a + " " + b);
+
+System.out.println(result);  // Output: " Java Stream API"
+🔍 Example 3: Find Maximum
+java
+Copy
+Edit
+List<Integer> nums = Arrays.asList(3, 9, 1, 6, 7);
+
+Optional<Integer> max = nums.stream()
+    .reduce(Integer::max);
+
+max.ifPresent(System.out::println);  // Output: 9

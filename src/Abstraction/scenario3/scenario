@@ -1,0 +1,21 @@
+💼 Requirements:
+Every Notification must have:
+
+A title, message, and recipient
+
+A method to compose the notification (common)
+
+A method to send the notification (channel-specific)
+
+Each delivery channel:
+
+Has its own logic to send (e.g., SMTP, SMS gateway, push API)
+
+May support optional features like:
+
+Tracking (e.g., delivery reports)
+
+Scheduled delivery
+
+You should be able to easily add new notification types or delivery methods in the future.
+

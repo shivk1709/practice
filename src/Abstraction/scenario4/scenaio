@@ -1,0 +1,29 @@
+🔷 Scenario 2: Smart Vehicle Dashboard System
+📘 Description:
+You're developing software for a smart dashboard system for modern vehicles.
+
+There are different types of dashboards for:
+
+Electric Cars
+
+Gasoline Cars
+
+Hybrid Cars
+
+All dashboards must:
+
+Display speed
+
+Show fuel or battery level
+
+Sync with a mobile app
+
+Report diagnostic data
+
+But some dashboards also:
+
+Electric Cars: Show charging station availability and battery health
+
+Gasoline Cars: Display fuel efficiency and oil level
+
+Hybrid Cars: Combine both battery and fuel stats, and offer eco-driving tips

@@ -1,0 +1,12 @@
+💻 Java Exception Handling Practice Exercise
+🧾 Scenario: Online Course Registration System
+You are building a simple course registration system. The system should:
+
+Allow users to register for a course
+
+Validate user age (must be 18 or older)
+
+Check if the course exists (from a predefined list)
+
+Throw custom checked and unchecked exceptions based on different cases
+

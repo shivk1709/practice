@@ -1,0 +1,99 @@
+✅ 10 Medium-Level Java Stream API Questions
+1. Filter and Collect Names Starting with 'A'
+Description: From a list of names, filter those starting with the letter 'A'.
+
+List<String> names = Arrays.asList("Alice", "Bob", "Andrew", "Charlie", "Anna");
+Expected Result: ["Alice", "Andrew", "Anna"]
+
+2. Find the Longest String
+Description: Use reduce() to find the longest string in a list.
+
+java
+Copy
+Edit
+List<String> words = Arrays.asList("Java", "Stream", "API", "Collector");
+Expected Result: "Collector"
+
+3. Group People by Age
+Description: Given a list of Person(name, age), group them by age.
+
+java
+Copy
+Edit
+List<Person> people = ...
+Expected Result: Map<Integer, List<Person>> grouped by age.
+
+4. Partition Numbers into Even and Odd
+Description: Given a list of integers, partition them into even and odd using partitioningBy.
+
+java
+Copy
+Edit
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+Expected Result:
+
+java
+Copy
+Edit
+{ true = [2, 4, 6], false = [1, 3, 5] }
+5. Count Frequency of Words
+Description: Count the number of occurrences of each word in a list.
+
+java
+Copy
+Edit
+List<String> words = Arrays.asList("apple", "banana", "apple", "orange", "banana", "apple");
+Expected Result:
+
+java
+Copy
+Edit
+{apple=3, banana=2, orange=1}
+6. Convert List of Strings to Uppercase
+Description: Use map() to convert all strings in a list to uppercase.
+
+java
+Copy
+Edit
+List<String> names = Arrays.asList("john", "jane", "jack");
+Expected Result: ["JOHN", "JANE", "JACK"]
+
+7. Find Second Highest Number
+Description: Use stream to find the second highest number in a list.
+
+java
+Copy
+Edit
+List<Integer> numbers = Arrays.asList(10, 5, 20, 30, 20, 25);
+Expected Result: 25
+
+8. Sum of Salaries for People Older Than 30
+Description: Given Person(name, age, salary), sum salaries where age > 30.
+
+java
+Copy
+Edit
+List<Person> people = ...
+Expected Result: Double representing total salary.
+
+9. Group Names by First Letter
+Description: Group list of names by their first character.
+
+java
+Copy
+Edit
+List<String> names = Arrays.asList("Alice", "Adam", "Bob", "Brian");
+Expected Result:
+
+java
+Copy
+Edit
+{A=[Alice, Adam], B=[Bob, Brian]}
+10. Join Strings with Comma
+Description: Join all strings in a list with , delimiter using Collectors.joining.
+
+java
+Copy
+Edit
+List<String> words = Arrays.asList("Java", "Stream", "API");
+Expected Result: "Java,Stream,API"
