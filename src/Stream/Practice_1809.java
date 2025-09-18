@@ -67,5 +67,16 @@ public class Practice_1809
 
         Map<String, List<String>> empNameByDpt = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Employee::getName, Collectors.toList())));
         System.out.println(empNameByDpt);
+
+        List<String> employeesName = employees.stream().map(employee -> employee.getName().toUpperCase()).sorted(Comparator.comparingInt(String::length).reversed()).toList();
+        System.out.println(employeesName);
+
+        List<String> sortedNames = employees.stream().map(employee -> employee.getName().toUpperCase()).sorted().toList();
+        System.out.println(sortedNames);
+        List<String> sortedNamesReverse = employees.stream().map(employee -> employee.getName().toUpperCase()).sorted(Comparator.reverseOrder()).toList();
+        System.out.println(sortedNamesReverse);
+
+
+
     }
 }
