@@ -1,4 +1,4 @@
-package TwoPointers;
+package TripJack_Practice;
 
 import java.util.Scanner;
 

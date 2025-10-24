@@ -1,7 +1,5 @@
 package Stream;
 
-import FunctionalInterface.Situation1.Predicate;
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.function.Function;
@@ -13,6 +11,8 @@ public class Practice_1809
     {
 
         List<String> names = List.of("Alice", "alex", "Ed", "edgar", "Ian", "Oscar", "uma", "Uma");
+
+        List<String> vowelsWithMoreThan31 = names.stream().filter(name -> name.length() > 3).filter(name -> "aeiou".indexOf(Character.toLowerCase(name.charAt(0))) != -1).toList();
 
         List<String> vowelsWithMoreThan3 = names.stream()
                 .filter(name -> name.length() > 3 && ("aeiou".indexOf(Character.toLowerCase(name.charAt(0))) > 0))
@@ -34,7 +34,18 @@ public class Practice_1809
                 new Person("Bhavtesh", 45, 2000000),
                 new Person("Bhuvnesh", 10, 100000));
 
+        List<String> personWith30Age = persons.stream().filter(person -> person.getAge() > 30).map(Person::getName).toList();
+
+        Map<Character, List<String>> personMap = persons.stream().collect(Collectors.groupingBy(person -> person.getName().charAt(0), Collectors.mapping(Person::getName, Collectors.toList())));
+
+        System.out.println(personMap + "jhdbf");
+
+        Optional<Person> person = persons.stream().max(Comparator.comparingInt(Person::getAge));
+
         Person personWithMaxSalary = persons.stream().max(Comparator.comparingInt(Person::getSalary)).get();
+
+        List<Person> sortedPersonList = persons.stream().sorted(Comparator.comparingInt(Person::getAge).thenComparing(Person::getName)).toList();
+        Collections.sort(persons, Comparator.comparingInt(Person::getAge).reversed().thenComparing(Person::getName));
 
         Person personWithSecondHighestSalary = persons.stream().distinct().sorted(Comparator.comparingInt(Person::getSalary).reversed()).skip(1).findFirst().orElse(null);
 

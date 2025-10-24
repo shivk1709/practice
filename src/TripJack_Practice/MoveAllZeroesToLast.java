@@ -1,6 +1,5 @@
-package TwoPointers;
+package TripJack_Practice;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MoveAllZeroesToLast

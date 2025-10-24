@@ -1,4 +1,4 @@
-package LeetCode;
+package TripJack_Practice;
 
 public class LongestCommonPrefix
 {

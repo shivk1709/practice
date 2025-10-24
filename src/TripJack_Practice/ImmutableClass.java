@@ -1,4 +1,4 @@
-package DesignPatterns.ImmutableClass;
+package TripJack_Practice;
 
 import java.util.ArrayList;
 import java.util.List;

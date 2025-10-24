@@ -1,4 +1,4 @@
-package LeetCode;
+package TripJack_Practice;
 
 import java.util.Arrays;
 
