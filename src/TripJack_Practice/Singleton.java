@@ -38,6 +38,9 @@ public class Singleton implements Serializable
     {
         return getInstance();
     }
+//    pseudo code, reverse a string, array ans strings, minimize db queries,
+//    optimize content, make fast ka, browser api, problem solving general, kafka using primary data structure
+//    how to timing, dsa basic questions
 
     public static void main(String[] args)
     {

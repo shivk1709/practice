@@ -22,6 +22,8 @@ public class Practice_1809
 
         List<Integer> numbers = Arrays.asList(3, 6, 2, 7, 8, 9);
 
+        List<Integer> sqares = numbers.stream().filter(n -> n % 2 == 0).map(n -> n * n).toList();
+
         List<Integer> squares = numbers.stream().filter(number -> number % 2 == 0).map(number -> number * number).toList();
         System.out.println(squares);
 
@@ -34,9 +36,13 @@ public class Practice_1809
                 new Person("Bhavtesh", 45, 2000000),
                 new Person("Bhuvnesh", 10, 100000));
 
+        List<String> personWithAge30 = persons.stream().filter(person -> person.getAge() > 30).map(Person::getName).toList();
+
         List<String> personWith30Age = persons.stream().filter(person -> person.getAge() > 30).map(Person::getName).toList();
 
         Map<Character, List<String>> personMap = persons.stream().collect(Collectors.groupingBy(person -> person.getName().charAt(0), Collectors.mapping(Person::getName, Collectors.toList())));
+
+        Map<Character, List<String>> personNameMap = persons.stream().collect(Collectors.groupingBy(person -> person.getName().charAt(0), Collectors.mapping(Person::getName, Collectors.toList())));
 
         System.out.println(personMap + "jhdbf");
 
@@ -86,7 +92,6 @@ public class Practice_1809
         System.out.println(sortedNames);
         List<String> sortedNamesReverse = employees.stream().map(employee -> employee.getName().toUpperCase()).sorted(Comparator.reverseOrder()).toList();
         System.out.println(sortedNamesReverse);
-
 
 
     }
