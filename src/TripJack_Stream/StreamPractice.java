@@ -18,9 +18,14 @@ public class StreamPractice
         List<String> empName = employees.stream().map(Employee::getName).toList();
         System.out.println(empName);
 
-        Map<String, List<Employee>> groupedByDept = employees.stream().collect(Collectors.groupingBy(Employee::getName));
+        List<String> sortBasedOnTheLengthOfName = employees.stream().sorted(Comparator.comparingInt(e -> e.getName().length())).map(Employee::getName).toList();
+        System.out.println(sortBasedOnTheLengthOfName);
+
+        Map<String, List<Employee>> groupedByDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
         System.out.println(groupedByDept);
 
+        Map<String, List<String>> collectByNameByDepartment = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.mapping(Employee::getName, Collectors.toList())));
+        System.out.println(collectByNameByDepartment);
         Map<String, Optional<Employee>> maxSalaryInEachDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
         System.out.println(maxSalaryInEachDept);
 
@@ -34,6 +39,23 @@ public class StreamPractice
                 ));
 
         System.out.println("Average salary per department: " + averageSalaryPerDept);
+
+        Map<String, Integer> departmentScores = Map.of(
+                "HR", 70,
+                "IT", 90,
+                "Finance", 80,
+                "HR", 85,       // Map.of me duplicate key allowed nahi, so real example me use HashMap
+                "IT", 95
+        );
+
+//        departmentScores.forEach((department, scores) -> {
+//            double average = scores.stream().mapToInt(Integer::intValue).average().orElse(0);
+//            int max = scores.stream().mapToInt(Integer::intValue).max().orElse(0);
+//            int min = scores.stream().mapToInt(Integer::intValue).min().orElse(0);
+//
+//            System.out.println(department + " -> Avg: " + average + ", Max: " + max + ", Min: " + min);
+//        });
+
 
     }
 }
