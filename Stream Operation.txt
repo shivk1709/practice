@@ -1,0 +1,33 @@
+import java.util.*;
+import java.util.stream.*;
+
+// Sort
+List<Employee> sortedEmployees = employees.stream()
+    .sorted(Comparator.comparing(Employee::getAge)
+        .thenComparing(Employee::getSalary))
+    .collect(Collectors.toList());
+
+// Map from List
+Map<Integer, Employee> sortedEmployeeMap = employees.stream()
+    .collect(Collectors.toMap(
+        Employee::getAge,
+        employee -> employee,
+        (e1, e2) -> e1,
+        TreeMap::new
+    ));
+
+//average by department
+Map<String, Double> avgSalaryByDepartment = employees.stream()
+    .collect(Collectors.groupingBy(
+        Employee::getDepartment, 
+        Collectors.averagingDouble(Employee::getSalary)
+    ));
+	
+	// All Operations
+        long count = intList.stream().count();
+        int sum = intList.stream().mapToInt(Integer::intValue).sum();
+        OptionalDouble average = intList.stream().mapToInt(Integer::intValue).average();
+        OptionalInt min = intList.stream().mapToInt(Integer::intValue).min();
+        OptionalInt max = intList.stream().mapToInt(Integer::intValue).max();
+        OptionalInt product = intList.stream().mapToInt(Integer::intValue).reduce((a, b) -> a * b);
+
