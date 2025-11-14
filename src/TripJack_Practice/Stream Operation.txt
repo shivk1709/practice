@@ -23,6 +23,15 @@ Map<String, Double> avgSalaryByDepartment = employees.stream()
         Collectors.averagingDouble(Employee::getSalary)
     ));
 	
+	        Map<String, Double> maxSalaryByDepartment = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment, 
+                Collectors.collectingAndThen(
+                    Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),
+                    max -> max.get().getSalary() // Get the max salary from the Optional
+                )
+            ));
+	
 	// All Operations
         long count = intList.stream().count();
         int sum = intList.stream().mapToInt(Integer::intValue).sum();
