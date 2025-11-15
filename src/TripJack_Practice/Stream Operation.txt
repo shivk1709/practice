@@ -24,7 +24,10 @@ int secondLargest = Arrays.stream(arr)
                                       .skip(1)                    // skip the largest
                                       .findFirst()                // get the next one
                                       .orElseThrow(() -> new RuntimeException("No second largest found"));
-
+//capitalize the first letter of each word
+String result = Arrays.stream(input.split(" "))
+        .map(word -> word.substring(0,1).toUpperCase() + word.substring(1))
+        .collect(Collectors.joining(" "));
 // Map from List
     Map<Integer, Employee> sortedEmployeeMap = employees.stream()
     .collect(Collectors.toMap(
@@ -50,6 +53,8 @@ int secondLargest = Arrays.stream(arr)
                     max -> max.get().getSalary() // Get the max salary from the Optional
                 )
             ));
-	
-
-
+Print even numbers till 50
+List<Integer> evens = IntStream.rangeClosed(1, 50)
+        .filter(i -> i % 2 == 0)
+        .boxed()
+        .collect(Collectors.toList());
