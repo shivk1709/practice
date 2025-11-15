@@ -1,0 +1,32 @@
+@FunctionalInterface
+interface MyPredicate<T> {
+    boolean test(T t);
+}
+
+@FunctionalInterface
+interface MySupplier<T> {
+    T get();
+}
+
+@FunctionalInterface
+interface MyConsumer<T> {
+    void accept(T t);
+}
+
+public class FunctionalInterfacesDemo {
+    public static void main(String[] args) {
+        
+        MyPredicate<String> isLong = s -> s.length() > 5;
+        MySupplier<String> supplier = () -> "HelloFunctionalWorld";
+        MyConsumer<String> printer = s -> System.out.println("Output: " + s);
+
+        String value = supplier.get();
+
+        if (isLong.test(value)) {
+            printer.accept(value);
+        } else {
+            System.out.println("String is too short.");
+        }
+    }
+}
+
